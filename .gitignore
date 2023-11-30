@@ -1,1 +1,3 @@
-/node-modules
+.idea
+node-modules
+tests
