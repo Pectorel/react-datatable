@@ -1,6 +1,6 @@
 {
   "name": "react-datatable-light",
-  "version": "1.0.1",
+  "version": "1.0.101",
   "description": "React library that helps generate Datatable from Array Data",
   "main": "Datatable.jsx",
   "scripts": {
