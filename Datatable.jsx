@@ -18,7 +18,7 @@ import DTFooter from "./DTFooter.jsx";
 import DTFilters from "./DTFilters.jsx";
 import style from "./assets/datatable.module.css";
 
-function Datatable({ data, className, options = { perPage: 10 } }) {
+function Datatable({ data, className, options = { perPage: 10, entries: true, search: true, sort: true} }) {
   const [page, setPage] = useState(() => {
     return 0;
   });
@@ -99,9 +99,9 @@ function Datatable({ data, className, options = { perPage: 10 } }) {
 
   return (
     <div className={`${className} ${style.datatable}`}>
-      <DTFilters setPerPage={setPerPage} setSearch={setSearch} />
+      <DTFilters setPerPage={setPerPage} setSearch={setSearch} options={options} />
       <table>
-        <DTHead setSort={setSortBy} headRow={data[0]} />
+        <DTHead setSort={setSortBy} headRow={data[0]} options={options} />
         <tbody>
           {getRowsToShow()
             .slice(perPage * page, perPage * (page + 1))
