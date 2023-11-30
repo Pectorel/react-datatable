@@ -65,11 +65,9 @@ function Datatable({ data, className, options = { perPage: 10 } }) {
    */
   const getSortedData = () => {
     if (sortBy != null) {
-      console.log("Sorting");
       return data.sort((a, b) => {
         if (sortBy.order === "asc")
           return a[sortBy.field].localeCompare(b[sortBy.field]);
-        console.log("Desc");
         return b[sortBy.field].localeCompare(a[sortBy.field]);
       });
     }
