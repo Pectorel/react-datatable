@@ -20,8 +20,5 @@
   "bugs": {
     "url": "https://github.com/Pectorel/react-datatable/issues"
   },
-  "homepage": "https://github.com/Pectorel/react-datatable#readme",
-  "dependencies": {
-    "react-datatable-light": "^1.0.101"
-  }
+  "homepage": "https://github.com/Pectorel/react-datatable#readme"
 }
