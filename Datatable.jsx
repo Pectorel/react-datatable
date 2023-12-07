@@ -95,11 +95,11 @@ function Datatable({ data, className, options = { perPage: 10, entries: true, se
   if(className === undefined) className = "";
 
   return (
-    <div className={`${className} ${style.datatable}`}>
+    <div className={`${className} ${style.datatable}`} data-testid={"datatable"}>
       <DTFilters setPerPage={setPerPage} setSearch={setSearch} options={options} />
       <table>
         <DTHead setSort={setSortBy} headRow={data[0]} options={options} />
-        <tbody>
+        <tbody data-testid={"datatable-body"}>
           {getRowsToShow()
             .slice(perPage * page, perPage * (page + 1))
             .map((row, key) => {

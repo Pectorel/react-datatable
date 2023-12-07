@@ -42,11 +42,11 @@ function DTFooter({ page, maxPage, perPage, setPage, dataLength }) {
       </span>
 
       <div>
-        <button onClick={() => goToPage(page - 1)} disabled={page === 0}>
+        <button onClick={() => goToPage(page - 1)} disabled={page === 0} data-testid={"datatable-pagination-previous"}>
           Previous
         </button>
         {getPagination()}
-        <button onClick={() => goToPage(page + 1)} disabled={page === maxPage}>
+        <button onClick={() => goToPage(page + 1)} disabled={page === maxPage} data-testid={"datatable-pagination-next"}>
           Next
         </button>
       </div>

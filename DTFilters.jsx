@@ -14,7 +14,7 @@ function DTFilters({
   return (
     <header>
       {options.entries ? (
-        <label>
+        <label data-testid={"datatable-entries-filter"}>
           Show&nbsp;
           <select name="entries" id="entries" onChange={changeEntries}>
             <option value="10">10</option>
@@ -26,7 +26,7 @@ function DTFilters({
         </label>
       ) : null}
       {options.search ? (
-        <label>
+        <label data-testid={"datatable-search-filter"}>
           Search:&nbsp;
           <input type="search" onChange={changeSearch} />
         </label>
