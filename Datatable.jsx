@@ -5,11 +5,6 @@
  * By default sort by array index
  *
  *
- * Ideas :
- *  - Add item per page - DONE
- *  - Add default sort attribute
- *  - Try to check data validity on row based on first row keys (only render same keys as the first row for other rows)
- *
  */
 import { useEffect, useState } from "react";
 import DTRow from "./DTRow.jsx";
@@ -96,6 +91,8 @@ function Datatable({ data, className, options = { perPage: 10, entries: true, se
     }
     return res;
   };
+
+  if(className === undefined) className = "";
 
   return (
     <div className={`${className} ${style.datatable}`}>
