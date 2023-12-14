@@ -1,6 +1,16 @@
+/**
+ * --- Head Row of Datatable ---
+ *
+ * Show the column names based on the data given to the Datatable component
+ * Also have a sort system that can be toggled on/off
+ *
+ */
+
 import style from "./assets/datatable.module.css";
 
 function DTHead({ setSort, headRow = {}, options = { sort: true } }) {
+
+  // Change style of the sort element + change sort state
   const changeSort = ({ target }) => {
     if (!options.sort) return false;
     let icon = target.querySelector(`.${style["sort-icon"]}`);

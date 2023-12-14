@@ -1,12 +1,23 @@
-import style from "./assets/datatable.module.css";
+/**
+ * --- Footer for Datatable ---
+ *
+ * Show index of entries and its total
+ * Also show the pagination
+ *
+ */
 
+
+import style from "./assets/datatable.module.css";
 function DTFooter({ page, maxPage, perPage, setPage, dataLength }) {
+
+  // Get last data index of the current page
   const getLastRowIndex = () => {
     let res = perPage * (page + 1);
     if (dataLength < perPage * (page + 1)) res = dataLength;
     return res;
   };
 
+  // Switch datatable page
   const goToPage = (index) => {
     if (index > maxPage) {
       index = maxPage;
@@ -16,6 +27,7 @@ function DTFooter({ page, maxPage, perPage, setPage, dataLength }) {
     setPage(index);
   };
 
+  // generates all the button needed for pagination
   const getPagination = () => {
     const pages = [];
     for (let i = 0; i <= maxPage; i++) {

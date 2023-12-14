@@ -10,7 +10,12 @@ through JSON Array data.
 
 ## How To Use ?
 
-First install the package :
+### Prerequisite
+
+- React 18.2 or higher
+- [Vite](https://vitejs.dev/guide/) to setup your React project
+
+### installation
 
 **Npm** ``npm i react-datatable-light -S``
 
@@ -56,3 +61,16 @@ entries showed per page
 - options.search (boolean) / Default ``true`` | Show / Hide the search input
 - options.sort (boolean) / Default ``true`` | enable / Disable the sort feature on columns
 
+### Custom style
+
+You can add a className attribute to add your own css class
+
+```jsx
+<Datatable data={data} className={"custom-class"}/>;
+```
+In your CSS file :
+```css 
+.custom-class{
+    /* Your custom style */
+}
+```

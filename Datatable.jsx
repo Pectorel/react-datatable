@@ -1,9 +1,9 @@
 /**
+ * --- Main Datatable Component ---
  *
- * Objectives : Renders only visible Row at first to speed up the calculation
+ * Renders only visible Row to speed up the rendering
  * But Store all data for filtering purpose
  * By default sort by array index
- *
  *
  */
 import { useEffect, useState } from "react";
@@ -14,6 +14,8 @@ import DTFilters from "./DTFilters.jsx";
 import style from "./assets/datatable.module.css";
 
 function Datatable({ data, className, options = { perPage: 10, entries: true, search: true, sort: true} }) {
+
+  // Setting up every States needed
   const [page, setPage] = useState(() => {
     return 0;
   });
@@ -34,6 +36,7 @@ function Datatable({ data, className, options = { perPage: 10, entries: true, se
     return null;
   });
 
+  // We deep copy data in case the original data parameter is in read-only for sorting purpose (like in Redux)
   data = [...data];
 
   useEffect(() => {

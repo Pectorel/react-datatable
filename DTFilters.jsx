@@ -1,12 +1,22 @@
+/**
+ * --- Filters Component for Datatable ---
+ *
+ * Show / Hide Entries select and search filter
+ *
+ */
+
+
 function DTFilters({
   setPerPage,
   setSearch,
   options = { entries: true, search: true },
 }) {
+  // Update number of row per page
   const changeEntries = ({ target }) => {
     setPerPage(parseInt(target.value));
   };
 
+  // Update the search value
   const changeSearch = ({ target }) => {
     setSearch(target.value);
   };
