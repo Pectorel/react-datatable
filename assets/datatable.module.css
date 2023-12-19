@@ -93,6 +93,11 @@
 
         }
 
+        .page-limiter{
+            display: inline-block;
+            margin-right: .5rem;
+        }
+
     }
 
 }

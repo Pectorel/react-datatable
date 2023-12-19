@@ -54,12 +54,16 @@ import Datatable from "react-datatable-light/Datatable";
 ```
 
 ### Options List
-- options.perPage (int) / Default : ``10`` | 
+- **options.perPage** *(int)* / Default : ``10`` | 
 Defines the number of items per page
-- options.entries (boolean) / Default ``true`` | Show / Hide the entries select menu to change the 
+- **options.entries** *(boolean)* / Default ``true`` | Show / Hide the entries select menu to change the 
 entries showed per page
-- options.search (boolean) / Default ``true`` | Show / Hide the search input
-- options.sort (boolean) / Default ``true`` | enable / Disable the sort feature on columns
+- **options.search** *(boolean)* / Default ``true`` | Show / Hide the search input
+- **options.sort** *(boolean)* / Default ``true`` | enable / Disable the sort feature on columns
+- **options.pagination.limit** *(int)* / Default ``5`` | Indicates how much pages buttons we show at first and last page. 
+Minimum limit is at 3 to avoid off limits and step option bugs in pagination.
+- **options.pagination.step** *(int)* / Default ``1`` | Indicates how much page number we get before and after current page when above 
+the limit option. This option **MUST** be smaller than limit !
 
 ### Custom style
 

@@ -1,9 +1,9 @@
 /**
- * --- Main Datatable Component ---
  *
- * Renders only visible Row to speed up the rendering
+ * Objectives : Renders only visible Row at first to speed up the calculation
  * But Store all data for filtering purpose
  * By default sort by array index
+ *
  *
  */
 import { useEffect, useState } from "react";
@@ -13,9 +13,28 @@ import DTFooter from "./DTFooter.jsx";
 import DTFilters from "./DTFilters.jsx";
 import style from "./assets/datatable.module.css";
 
-function Datatable({ data, className, options = { perPage: 10, entries: true, search: true, sort: true} }) {
+// Default options settings
+const default_options = {
+  perPage: 10,
+  entries: true,
+  search: true,
+  sort: true,
+  pagination: {
+    limit: 5,
+    step: 1
+  }
+};
 
-  // Setting up every States needed
+function Datatable({ data, className, options = default_options }) {
+
+
+  // We set default options in case only few options has been changed
+  for(let key in default_options){
+    if(!Object.prototype.hasOwnProperty.call(options, key)){
+      options[key] = default_options[key];
+    }
+  }
+
   const [page, setPage] = useState(() => {
     return 0;
   });
@@ -36,7 +55,6 @@ function Datatable({ data, className, options = { perPage: 10, entries: true, se
     return null;
   });
 
-  // We deep copy data in case the original data parameter is in read-only for sorting purpose (like in Redux)
   data = [...data];
 
   useEffect(() => {
@@ -54,6 +72,8 @@ function Datatable({ data, className, options = { perPage: 10, entries: true, se
 
     if (page >= i) setPage(i);
   }, [perPage, search]);
+
+
 
   /**
    * Function to get sorted data based on sorting criteria.
@@ -116,6 +136,7 @@ function Datatable({ data, className, options = { perPage: 10, entries: true, se
         setPage={setPage}
         perPage={perPage}
         dataLength={getRowsToShow().length}
+        options={options}
       />
     </div>
   );
